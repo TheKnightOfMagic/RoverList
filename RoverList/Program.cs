@@ -11,10 +11,26 @@ namespace RoverList
         static void Main(string[] args)
         {
             // TODO:  Implement the RoverList class
+            RoverList list = new RoverList();
             // TODO:  Create a RoverList and then fill it with 16 words
-
+            list.Add("A");
+            list.Add("To");
+            list.Add("Fad");
+            list.Add("Food");
+            list.Add("Quaff");
+            list.Add("Mental");
+            list.Add("Pyramid");
+            list.Add("Enamored");
+            list.Add("Planetary");
+            list.Add("Beleagured");
+            list.Add("Candy");
+            list.Add("Candor");
+            list.Add("Cadence");
+            list.Add("Seratonin");
+            list.Add("Implementation");
+            list.Add(3, "Fungi");
             // TODO:  Print out the list
-
+            list.ListNodes();
             // TODO:  Remove every 3rd word
             // TODO:  Print out the list
 
