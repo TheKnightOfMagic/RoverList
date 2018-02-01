@@ -9,22 +9,51 @@ namespace RoverList
     class RoverList : RoverListBase
     {
         // Add any variables you need here
-        
+        int count = 0;
         public RoverList ()
         {
 
         }
 
-        public override int Count => throw new NotImplementedException();
+        public override int Count => count;
 
         public override void Add(object data)
         {
-            throw new NotImplementedException();
+
+            if (head == null)
+            {
+                head = new Node(data);
+                current = head;
+            }
+            else
+            {
+                current.Next = new Node(data);
+                current = current.Next;
+            }
+            count++;
         }
 
         public override void Add(int Position, object data)
         {
-            throw new NotImplementedException();
+            int a = 0;
+            current = head;
+
+            while (current.Next != null)
+            {
+
+                current = current.Next;
+                Node cNext = current.Next;
+                a++;
+                if (a == Position)
+                {
+                    current.Next = new Node(data);
+                    current.Next.Next = cNext;
+                    a++;
+
+                }
+
+            }     
+
         }
 
         public override void Clear()
@@ -39,12 +68,26 @@ namespace RoverList
 
         public override void ListNodes()
         {
-            throw new NotImplementedException();
+            
+            if (current!=null)
+            {
+                current = head;
+                for (int i = 0; i<count; i++)
+                {
+                    
+                    System.Console.WriteLine(current.Data);
+                    if (current.Next != null)
+                    {
+                        current = current.Next;
+                    }
+
+                }
+            }
         }
 
         public override bool RemoveAt(int Position)
         {
-            throw new NotImplementedException();
+            //Position -1
         }
     }
 }
