@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -88,6 +88,33 @@ namespace RoverList
         public override bool RemoveAt(int Position)
         {
             //Position -1
+            int a = 0;
+            current = head;
+            Node prev, next;
+            while (current.Next != null)
+            {
+                //prev is prev a
+                prev = current;
+                //current = prev.Next b
+                current = current.Next;
+                //next is prev.Next.Next c
+                next = current.Next;
+                if (Position == a)
+                {
+                    //a = c
+                    
+                    prev.Next = next;
+                    
+                    
+                    return true;
+                }
+               
+                   
+                
+                
+                a++;
+            }
+            return false;
         }
     }
 }
