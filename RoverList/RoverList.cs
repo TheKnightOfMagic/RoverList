@@ -15,7 +15,7 @@ namespace RoverList
 
         }
 
-        public override int Count => count;
+        public override int Count => count = 0;
 
         public override void Add(object data)
         {
@@ -37,18 +37,18 @@ namespace RoverList
         {
             int a = 0;
             current = head;
-
+            Node cNext;
             while (current.Next != null)
             {
 
                 current = current.Next;
-                Node cNext = current.Next;
+                cNext = current.Next;
                 a++;
                 if (a == Position)
                 {
                     current.Next = new Node(data);
                     current.Next.Next = cNext;
-                    a++;
+                    
 
                 }
 
@@ -63,25 +63,35 @@ namespace RoverList
 
         public override Node ElementAt(int Position)
         {
-            throw new NotImplementedException();
+            int a = 0;
+            current = head;
+            while (a!=Position)
+            {
+                current = current.Next;
+                a++;
+            }
+
+            return current;
         }
 
         public override void ListNodes()
         {
             
-            if (current!=null)
+            if (head!=null)
             {
                 current = head;
                 for (int i = 0; i<count; i++)
                 {
                     
-                    System.Console.WriteLine(current.Data);
+                    
                     if (current.Next != null)
                     {
+                        System.Console.WriteLine(current.Data);
                         current = current.Next;
                     }
 
                 }
+                System.Console.WriteLine(current.Data);
             }
         }
 
@@ -91,26 +101,21 @@ namespace RoverList
             int a = 0;
             current = head;
             Node prev, next;
-            while (current.Next != null)
+            while (current.Next != null && head!=null)
             {
                 //prev is prev a
-                prev = current;
+                prev = current.Next;
                 //current = prev.Next b
-                current = current.Next;
+                current = current.Next.Next;
                 //next is prev.Next.Next c
                 next = current.Next;
                 if (Position == a)
                 {
                     //a = c
-                    
-                    prev.Next = next;
-                    
-                    
+                    current = null;
+                    prev = next;
                     return true;
-                }
-               
-                   
-                
+                }  
                 
                 a++;
             }
