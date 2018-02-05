@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -29,13 +29,35 @@ namespace RoverList
             list.Add("Seratonin");
             list.Add("Implementation");
             list.Add(3, "Fungi");
+            
             // TODO:  Print out the list
             list.ListNodes();
             // TODO:  Remove every 3rd word
+            /*for (int i = 0; i<list.Count; i++)
+            {
+                if ((i+1) %3==0)
+                {
+                    list.RemoveAt(i);
+                }
+
+            }*/
+            list.RemoveAt(3);
             // TODO:  Print out the list
 
             // TODO:  Prompt the user to input words, add those words to the list until they enter the word "done"
+            bool cont = true;
+            while (cont == true)
+            {
+                string userInput = Console.ReadLine();
+                if (userInput.Equals("done"))
+                {
+                    cont = false;
+                    break;
+                }
+                list.Add(userInput);
+            }
             // TODO:  Print out the list
+            list.ListNodes();
 
             // TODO:  Prompt the user to input words, add those words to the FRONT of the list until they enter the word "done"
             // TODO:  Print out the list
