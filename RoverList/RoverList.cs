@@ -15,7 +15,7 @@ namespace RoverList
 
         }
 
-        public override int Count => count = 0;
+        public override int Count => count-1;
 
         public override void Add(object data)
         {
@@ -24,6 +24,7 @@ namespace RoverList
             {
                 head = new Node(data);
                 current = head;
+                
             }
             else
             {
@@ -46,6 +47,7 @@ namespace RoverList
                     current.Next.Next = cNext;
                     current = current.Next;
                     current.Next = cNext;
+                    count++;
                     
 
                 }
@@ -59,7 +61,13 @@ namespace RoverList
 
         public override void Clear()
         {
-            throw new NotImplementedException();
+            int a = 0;
+            current = head;
+            while (current.Next!=null)
+            {
+                current = current.Next;
+            }
+            head.Next = current.Next;
         }
 
         public override Node ElementAt(int Position)
@@ -115,6 +123,7 @@ namespace RoverList
                     //a = c
                     current = null;
                     prev.Next = next;
+                    count--;
                     return true;
                 }  
                 
@@ -124,3 +133,4 @@ namespace RoverList
         }
     }
 }
+
