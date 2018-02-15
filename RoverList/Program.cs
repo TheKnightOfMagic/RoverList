@@ -12,24 +12,24 @@ namespace RoverList
         {
             // TODO:  Implement the RoverList class
             RoverList list = new RoverList();
-            list.Add("  ");
+            list.Add(null);
             // TODO:  Create a RoverList and then fill it with 16 words
-            list.Add("A");
+            list.Add("A");//
             list.Add("To");
-            list.Add("Fad");
-            list.Add("Food");
-            list.Add("Quaff");
+            list.Add("Fad");//
+           
+            list.Add("Quaff");//
             list.Add("Mental");
-            list.Add("Pyramid");
+            list.Add("Pyramid");//
             list.Add("Enamored");
-            list.Add("Planetary");
+            list.Add("Planetary");//
             list.Add("Beleagured");
-            list.Add("Candy");
+            list.Add("Candy");//
             list.Add("Candor");
-            list.Add("Cadence");
-            list.Add("Seratonin");
+            list.Add("Cadence");//
+            list.Add("Seratonin");//
             list.Add("Implementation");
-            list.Add(3, "Fungi");
+            list.Add(3, "Fungi");//
             list.Add(6, "Abdicate");
             
             // TODO:  Print out the list
@@ -75,12 +75,23 @@ namespace RoverList
             // TODO:  Print out the list
             list.ListNodes();
             // TODO:  Remove every word with an odd length
-            
+            for (int i = 1; i < list.Count+1; i++)
+            {
+                string great = (string)list.ElementAt(i).Data;
+                int len = great.Length;
+                if (len%2 != 0)
+                {
+                    list.RemoveAt(i);
+                    i--;
+                }
+            }
             // TODO:  Print out the list
-
+            list.ListNodes();
             // TODO:  Clear the list
+            list.Clear();
             // TODO:  Print out the list
-
+        
+            list.ListNodes();
 
         }
     }
